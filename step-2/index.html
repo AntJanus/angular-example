@@ -1,0 +1,33 @@
+<html ng-app="myapp">
+    <head>
+        <title>Step 2</title>
+    <link href="https://raw.githubusercontent.com/AntJanus/tseczka-CSS-framework/develop/dist/tseczka.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+    <script>
+        //what if we want to convert this interaction into a markdown previewer?
+        var app = angular.module("myapp", ['customFilters.markdown']);
+
+        angular.module('customFilters.markdown', [])
+            .filter('markdown', function($sce) {
+                var converter = new Showdown.converter();
+                return function(input) {
+                    var html = $sce.trustAsHtml(converter.makeHtml(input || ''));
+                    return html;
+                }
+            });
+
+    </script>
+    </head>
+    <body>
+        <section>
+            <div class="row">
+                <div class="col-6">
+                    <textarea ng-model="myText"></textarea>
+                </div>
+                <div class="col-6 last" ng-bind-html="myText|markdown">
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
