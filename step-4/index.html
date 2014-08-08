@@ -7,19 +7,28 @@
     <script>
         var app = angular.module("myapp", []);
 
+        app.controller('CommentsController', function($scope) {
+            $scope.comments = ['comment', 'comment2'];
+        });
+
     </script>
     </head>
     <body>
-        <section>
-            <div class="row">
-                <div class="col-6">
-                    <textarea ng-model="myText"></textarea>
-                </div>
-                <div class="col-6 last" ng-bind-html="myText|markdown|trust">
-                </div>
-                <div class="col-6">
-                    <h2>Downloadable HTML</h2>
-                    <textarea>{{myText|markdown}}</textarea>
+        <section ng-view class="row">
+            <div class="col-6">
+                <div ng-controller="CommentsController">
+                    <div class="feed-item">
+                        <p>Omfg! I can't believe this one thing just happened, right?</p>
+                        <ul class="list-meta">
+                            <li><a href="#">comment</a></li>
+                            <li><a href="#">like</a></li>
+                    </div>
+                    <div class="feed-comments">
+                        <ul class="block-list comment-block">
+                            <li ng-repeat="comment in comments">
+                                {{comment}}
+                            </li>
+                    </div>
                 </div>
             </div>
         </section>
