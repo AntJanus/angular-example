@@ -19,3 +19,5 @@ comments[]: Developers > everyone else.
 comments[]: Angular is awesome!
 -----
 comments[]: I don't see how that's relevant.
+-----
+tags: javascript, ruby

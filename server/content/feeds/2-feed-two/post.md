@@ -10,3 +10,5 @@ comments[]: You should go to a meetup!
 comments[]: ^^THIS!
 -----
 comments[]: Watch a movie or a show!
+-----
+tags: php, javascript

@@ -10,9 +10,14 @@ var async     = require('async');
 var md        = require('marked');
 
 //routes
-app.get('/api/', function(req,res) {
-  var feed = reader.getFeed([], 0, 0, function(result) {
+app.get('/api/feed', function(req,res) {
+  var feed = reader.getFeed(['feeds'], 0, 0, function(result) {
     res.send(result);
   });
 });
 
+app.get('/api/users', function(req,res) {
+  var feed = reader.getFeed(['users'], 0, 0, function(result) {
+    res.send(result);
+  });
+});

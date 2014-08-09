@@ -1,0 +1,32 @@
+<div class="col-3"> &nbsp;</div>
+<div class="col-6">
+    <h1>Feed</h1>
+    <div ng-controller="FeedController">
+        <div class="form-horizontal">
+            <div class="form-group row">
+                <label>Search: </label>
+                <input type="text" ng-model="filterField">
+            </div>
+        </div>
+        <hr />
+        <ul class="block-list feed-list">
+            <li ng-repeat="item in feed | filter: filterField">
+                <div class="feed-item">
+                    <div ng-bind-html="item.content|markdown|trust"></div>
+                    <ul class="list-meta">
+                        <li><a href="#">comment</a></li>
+                        <li><a href="#">like</a></li>
+                </div>
+                <div class="feed-comments">
+                    <ul class="block-list comment-block">
+                        <li ng-repeat="comment in item.comments">
+                            <div ng-bind-html="comment|markdown|trust"></div>
+                        </li>
+                        <li ng-include=" 'templates/commentForm.html' ">
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

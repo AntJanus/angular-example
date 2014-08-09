@@ -1,0 +1,37 @@
+<html ng-app="myapp">
+    <head>
+        <title>Step 4</title>
+    <link href="https://raw.githubusercontent.com/AntJanus/tseczka-CSS-framework/develop/dist/tseczka.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+
+        app.controller('CommentsController', function($scope) {
+            $scope.comments = ['comment', 'comment2'];
+        });
+
+    </script>
+    </head>
+    <body>
+        <section ng-view class="row">
+            <div class="col-6">
+                <div ng-controller="CommentsController">
+                    <div class="feed-item">
+                        <p>Omfg! I can't believe this one thing just happened, right?</p>
+                        <ul class="list-meta">
+                            <li><a href="#">comment</a></li>
+                            <li><a href="#">like</a></li>
+                    </div>
+                    <div class="feed-comments">
+                        <ul class="block-list comment-block">
+                            <li ng-repeat="comment in comments">
+                                {{comment}}
+                            </li>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <script src="js/filters.js"></script>
+    </body>
+</html>
