@@ -5,7 +5,6 @@ app.controller('FeedController', function($scope, feedFactory) {
         feedFactory.getFeed.success(function(data) {
             $scope.feed = data;
          });
-
     };
 
     init();
@@ -23,7 +22,6 @@ app.controller('UsersController', function($scope, feedFactory) {
         feedFactory.getUsers.success(function(data) {
             $scope.users = data;
          });
-
     };
 
     init();

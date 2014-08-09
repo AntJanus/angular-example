@@ -17,6 +17,7 @@
                         <li ng-repeat="item in feed">
                             <div class="feed-item">
                                 <div ng-bind-html="item.content|markdown|trust"></div>
+                                {{ item.user }}
                                 <ul class="list-meta">
                                     <li><a href="#">comment</a></li>
                                     <li><a href="#">like</a></li>
